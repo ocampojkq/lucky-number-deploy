@@ -1,0 +1,33 @@
+ul {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    
+  }
+  
+ li {
+    padding: 0 20px;
+    display: inline-block;
+    font-size: 24px;
+  font-weight: bold;
+  }
+
+  .text-warning {
+    text-decoration: none;
+  }
+  .text-danger{
+text-decoration: none;
+  }
+  .text-primary{
+text-decoration: none;
+  }
+  .text-success{
+text-decoration: none;
+  }
+
+  .text-info{
+   text-decoration: none; 
+  }
+  h1 {
+    letter-spacing: 4px;
+  }
