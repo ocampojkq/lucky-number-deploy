@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div class="conatiner text-center">
       <h1 class="text-center pt-5 text-warning">
-        Baratohe tawn ko ninyo hahaha
+        Fortune Favours the Lucky Number
       </h1>
     </div>
   );
