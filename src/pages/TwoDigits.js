@@ -12,7 +12,7 @@ const TwoDigits = () => {
   }
 
   const handleClick = () => {
-    const rollTime = 2000;
+    const rollTime = 1000;
     if (!clicked) {
       setClicked(true);
       setNum("Rolling..."); // set the initial text before rolling the number
@@ -24,7 +24,7 @@ const TwoDigits = () => {
         if (i === rollTime / 100) {
           clearInterval(interval); // clear the interval after roll time has passed
           setNum(randomNumberInRange().toString().padStart(2, "0")); // set the final number after the rolling is complete
-          setClicked(false);
+          setClicked(true);
           setRolling(false);
         }
       }, 100); // set interval time to 100ms

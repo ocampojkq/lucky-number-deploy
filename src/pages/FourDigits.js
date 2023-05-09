@@ -8,11 +8,11 @@ const FourDigits = () => {
   const [rolling, setRolling] = useState(false);
 
   function randomNumberInRange() {
-    return Math.floor(Math.random() * (9999 - 100 + 1) + 100);
+    return Math.floor(Math.random() * 9000 + 1000);
   }
 
   const handleClick = () => {
-    const rollTime = 2000;
+    const rollTime = 1000;
     if (!clicked) {
       setClicked(true);
       setNum("Rolling..."); // set the initial text before rolling the number
@@ -24,7 +24,7 @@ const FourDigits = () => {
         if (i === rollTime / 100) {
           clearInterval(interval); // clear the interval after roll time has passed
           setNum(randomNumberInRange().toString().padStart(2, "0")); // set the final number after the rolling is complete
-          setClicked(false);
+          setClicked(true);
           setRolling(false);
         }
       }, 100); // set interval time to 100ms
