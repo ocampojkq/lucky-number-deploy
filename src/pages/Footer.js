@@ -15,8 +15,8 @@ const Footer = () => {
         </div>
 
         <div className="pt-5 text-center">
-          <i className="fa-solid fa-copyright text-center p-2 footer-icon pt-5 mt-5"></i>{" "}
-          2023 Kit. All rights Reserved{" "}
+          <i className="fa-solid fa-copyright text-center p-2 footer-icon pt-5 mt-5"></i>{' '}
+          2023 Kit. All rights Reserved{' '}
         </div>
       </div>
     </>

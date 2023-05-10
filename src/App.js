@@ -1,20 +1,20 @@
-import React from "react";
+import React from 'react';
 // import ReactDOM from "react-dom/client";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
-import Home from "./pages/Home";
-import TwoDigits from "./pages/TwoDigits";
-import ThreeDigits from "./pages/ThreeDigits";
-import FourDigits from "./pages/FourDigits";
-import SixDigits from "./pages/SixDigits";
-import SixFourtyTwo from "./pages/SixFourtyTwo";
-import SixFourtyFive from "./pages/SixFourtyFive";
-import SixFourtyNine from "./pages/SixFourtyNine";
-import SixFiftyFive from "./pages/SixFiftyFive";
-import SixFiftyEight from "./pages/SixFiftyEight";
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Layout from './pages/Layout';
+import Home from './pages/Home';
+import TwoDigits from './pages/TwoDigits';
+import ThreeDigits from './pages/ThreeDigits';
+import FourDigits from './pages/FourDigits';
+import SixDigits from './pages/SixDigits';
+import SixFourtyTwo from './pages/SixFourtyTwo';
+import SixFourtyFive from './pages/SixFourtyFive';
+import SixFourtyNine from './pages/SixFourtyNine';
+import SixFiftyFive from './pages/SixFiftyFive';
+import SixFiftyEight from './pages/SixFiftyEight';
 
-import NoPage from "./pages/NoPage";
+import NoPage from './pages/NoPage';
 
 export default function App() {
   return (
@@ -39,5 +39,5 @@ export default function App() {
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
