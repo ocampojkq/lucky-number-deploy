@@ -1,52 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const TwoDigits = () => {
-  const [num, setNum] = useState("00");
-  const [clicked, setClicked] = useState(false);
-  const [rolling, setRolling] = useState(false);
+  const [number, setNumber] = useState("00");
+  const [timeoutActive, setTimeoutActive] = useState(false);
+  const timeoutRef = useRef(null);
   const [quote, setQuote] = useState("");
+  const [buttonDisabled, setButtonDisabled] = useState(false);
 
-  function randomNumberInRange() {
-    return Math.floor(Math.random() * 99 + 1);
-  }
+  const generateNumber = () => {
+    const min = 0;
+    const max = 99;
+    const randomnumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    setNumber(randomnumber.toString().padStart(2, "0"));
+    clearTimeout(timeoutRef.current);
+    setTimeoutActive(true);
+    setButtonDisabled(true);
+    timeoutRef.current = setTimeout(() => {
+      setTimeoutActive(false);
+      setQuote(getRandomQuote());
+    }, 1000);
+  };
 
-  const handleClick = () => {
-    const rollTime = 2000;
-    if (!clicked) {
-      setClicked(true);
-      setNum("Rolling..."); // set the initial text before rolling the number
-      setRolling(true);
-      let i = 0;
-      const interval = setInterval(() => {
-        setNum(randomNumberInRange().toString().padStart(2, "0")); // update the number at regular intervals
-        i++;
-        if (i === rollTime / 100) {
-          clearInterval(interval); // clear the interval after roll time has passed
-          setNum(randomNumberInRange().toString().padStart(2, "0")); // set the final number after the rolling is complete
-          setClicked(true);
-          setRolling(false);
-          setQuote(getRandomQuote());
-        }
-      }, 100); // set interval time to 100ms
+  const getRandomColor = () => {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
     }
-  };
-
-  const randomColor = () => {
-    const colors = ["red", "blue", "green", "orange", "purple", "teal"];
-    return colors[Math.floor(Math.random() * colors.length)];
-  };
-
-  const circleStyles = {
-    width: "160px",
-    height: "160px",
-    borderRadius: "50%",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    color: "white",
-    backgroundColor: randomColor(),
-    margin: "auto",
+    return color;
   };
 
   const quotes = [
@@ -75,14 +56,51 @@ const TwoDigits = () => {
 
   return (
     <div className="container text-center pt-5">
-      <div className="text-center">
-        <h1 className=" circle-number" style={circleStyles}>
-          {rolling ? "Rolling" : num}
-        </h1>
-        <button className="btn btn-primary mt-5" onClick={handleClick}>
-          Roll the number
+      <div
+        className="text-center"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        {number && (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            {number
+              .toString()
+              .split("")
+              .map((digit, index) => (
+                <div
+                  key={index}
+                  style={{
+                    width: "60px",
+                    height: "60px",
+                    fontSize: "2rem",
+                    borderRadius: "50%",
+                    margin: "0 5px",
+                    padding: "5px",
+                    alignItems: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    backgroundColor: getRandomColor(),
+                    color: "white",
+                  }}
+                >
+                  {digit}
+                </div>
+              ))}
+          </div>
+        )}
+        <button
+          className="btn btn-primary mt-5"
+          onClick={generateNumber}
+          disabled={timeoutActive || buttonDisabled}
+          style={{ margin: "auto" }}
+        >
+          {buttonDisabled ? "Done rolling" : "Roll the number"}
         </button>
-        {quote !== "" && <h5 className="mt-5 fw-bold">{quote}</h5>}
+
+        {quote !== "" && <h5 className="mt-5 pt-5 fw-bold">{quote}</h5>}
       </div>
     </div>
   );

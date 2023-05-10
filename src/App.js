@@ -7,6 +7,8 @@ import TwoDigits from "./pages/TwoDigits";
 import ThreeDigits from "./pages/ThreeDigits";
 import FourDigits from "./pages/FourDigits";
 import SixDigits from "./pages/SixDigits";
+import SixFourtyTwo from "./pages/SixFourtyTwo";
+import SixFourtyFive from "./pages/SixFurtyFive";
 import NoPage from "./pages/NoPage";
 
 export default function App() {
@@ -19,6 +21,9 @@ export default function App() {
           <Route path="ThreeDigits" element={<ThreeDigits />} />
           <Route path="FourDigits" element={<FourDigits />} />
           <Route path="SixDigits" element={<SixDigits />} />
+          <Route path="SixFourtyTwo" element={<SixFourtyTwo />} />
+          <Route path="SixFourtyFive" element={<SixFourtyFive />} />
+
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
