@@ -16,8 +16,8 @@ const Home = () => {
   }, []);
 
   return (
-    <div class="container text-center">
-      <h1 class="text-center pt-5 text-warning fw-bolder">
+    <div className="container text-center">
+      <h1 className="text-center pt-5 text-warning fw-bolder">
         Fortune Favours the Lucky Number
       </h1>
       {quote && (
@@ -27,6 +27,7 @@ const Home = () => {
           </blockquote>
         </div>
       )}
+
       <Footer />
     </div>
   );

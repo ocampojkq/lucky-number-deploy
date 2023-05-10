@@ -6,10 +6,10 @@ import { Outlet, Link } from "react-router-dom";
 const Layout = () => {
   return (
     <>
-      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <div class="col-12 col-md-auto mb-2 justify-content-center mb-md-0"></div>
+      <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+        <div className="col-12 col-md-auto mb-2 justify-content-center mb-md-0"></div>
 
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
           <li>
             <Link to="/" className="text-warning">
               HOME
@@ -62,7 +62,7 @@ const Layout = () => {
           </li>
         </ul>
 
-        <div class="col-12 col-md-auto mb-2 justify-content-center mb-md-0"></div>
+        <div className="col-12 col-md-auto mb-2 justify-content-center mb-md-0"></div>
       </header>
 
       <Outlet />
