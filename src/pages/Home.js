@@ -32,7 +32,7 @@ const Home = () => {
 
     fetchImage();
     fetchQuote();
-  });
+  }, []);
 
   return (
     <div className="container text-center">

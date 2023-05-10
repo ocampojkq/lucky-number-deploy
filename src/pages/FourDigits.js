@@ -15,7 +15,7 @@ const circleNumber = {
   alignItems: 'center',
   fontSize: '2rem',
   fontWeight: 'bold',
-  margin: '0 1px',
+  margin: '0 2px',
   color: 'white',
 };
 
