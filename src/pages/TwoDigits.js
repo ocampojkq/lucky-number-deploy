@@ -1,36 +1,59 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Footer from "./Footer";
 
+const circleContainer = {
+  display: "flex",
+  justifyContent: "center",
+};
+
+const circleNumber = {
+  width: "60px",
+  height: "60px",
+  borderRadius: "50%",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontSize: "2rem",
+  fontWeight: "bold",
+  margin: "0 1px",
+  color: "white",
+};
+
 const TwoDigits = () => {
-  const [number, setNumber] = useState("00");
-  const [timeoutActive, setTimeoutActive] = useState(false);
-  const timeoutRef = useRef(null);
+  const [numbers, setNumbers] = useState([]);
+  const [colors, setColors] = useState([]);
   const [quote, setQuote] = useState("");
-  const [buttonDisabled, setButtonDisabled] = useState(false);
+  const [isRolling, setIsRolling] = useState(false); // new state variable
 
-  const generateNumber = () => {
-    const min = 0;
-    const max = 99;
-    const randomnumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    setNumber(randomnumber.toString().padStart(2, "0"));
-    clearTimeout(timeoutRef.current);
-    setTimeoutActive(true);
-    setButtonDisabled(true);
-    timeoutRef.current = setTimeout(() => {
-      setTimeoutActive(false);
-      setQuote(getRandomQuote());
-    }, 1000);
-  };
-
-  const getRandomColor = () => {
-    const letters = "0123456789ABCDEF";
-    let color = "#";
-    for (let i = 0; i < 6; i++) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  };
-
+  function selectSixNumbers() {
+    return new Promise((resolve) => {
+      const selectedNumbers = [];
+      const selectedColors = [];
+      let index = 0;
+      const intervalId = setInterval(() => {
+        let randomNumber;
+        do {
+          randomNumber = Math.floor(Math.random() * 10);
+        } while (selectedNumbers.includes(randomNumber));
+        const randomColor = `rgb(${Math.floor(
+          Math.random() * 256
+        )}, ${Math.floor(Math.random() * 256)}, ${Math.floor(
+          Math.random() * 256
+        )})`;
+        selectedNumbers.push(randomNumber);
+        selectedColors.push(randomColor);
+        setNumbers([...selectedNumbers]);
+        setColors([...selectedColors]);
+        index++;
+        if (index === 2) {
+          clearInterval(intervalId);
+          resolve();
+          setQuote(getRandomQuote());
+          setIsRolling(true); // set isRolling to false when the numbers are selected
+        }
+      }, 1000);
+    });
+  }
   const quotes = [
     "Luck is what happens when preparation meets opportunity.",
     "The only sure thing about luck is that it will change.",
@@ -55,57 +78,85 @@ const TwoDigits = () => {
     return quotes[Math.floor(Math.random() * quotes.length)];
   };
 
+  const handleClick = () => {
+    if (!isRolling) {
+      // only allow rolling if the button is not already clicked
+      setIsRolling(true); // set isRolling to true when the button is clicked
+      selectSixNumbers();
+    }
+  };
+
   return (
-    <div className="container text-center pt-5 ">
-      <div
-        className="text-center"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          flexDirection: "column",
-        }}
-      >
-        {number && (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            {number
-              .toString()
-              .split("")
-              .map((digit, index) => (
-                <div
-                  key={index}
-                  style={{
-                    width: "60px",
-                    height: "60px",
-                    fontSize: "2rem",
-                    borderRadius: "50%",
-                    margin: "2px",
-
-                    alignItems: "center",
-                    display: "flex",
-                    justifyContent: "center",
-                    backgroundColor: getRandomColor(),
-                    color: "white",
-                  }}
-                >
-                  {digit}
-                </div>
-              ))}
+    <div className="container text-center pt-5">
+      <div className="circle-container" style={circleContainer}>
+        {numbers.map((number, index) => (
+          <div
+            key={index}
+            className="circle-number"
+            style={{ ...circleNumber, backgroundColor: colors[index] }}
+          >
+            {number}
           </div>
-        )}
-        <button
-          className="btn btn-primary mt-5"
-          onClick={generateNumber}
-          disabled={timeoutActive || buttonDisabled}
-          style={{ margin: "auto" }}
-        >
-          {buttonDisabled ? "Done rolling" : "Roll the number"}
-        </button>
-
-        {quote !== "" && <h5 className="mt-5 pt-5 fw-bold">{quote}</h5>}
+        ))}
       </div>
+      <button
+        className="btn btn-primary mt-5 "
+        onClick={handleClick}
+        disabled={isRolling}
+      >
+        {isRolling ? "Done rolling" : "Roll the number"}
+        {/* // change the button textto "Rolling..." when isRolling is true */}
+      </button>
+
+      {quote !== "" && <h5 className="mt-5 pt-5 fw-bold">{quote}</h5>}
       <Footer />
     </div>
   );
 };
 
 export default TwoDigits;
+
+// to have default 00 show in screen
+// return (
+//   <div className="container text-center pt-5">
+//     <div className="circle-container" style={circleContainer}>
+//       {numbers.length === 0 && (
+//         <div
+//           className="circle-number"
+//           style={{ ...circleNumber, backgroundColor: "blue" }}
+//         >
+//           0
+//         </div>
+//       )}
+//       {numbers.length === 0 && (
+//         <div
+//           className="circle-number"
+//           style={{ ...circleNumber, backgroundColor: "blue" }}
+//         >
+//           0
+//         </div>
+//       )}
+//       {numbers.map((number, index) => (
+//         <div
+//           key={index}
+//           className="circle-number"
+//           style={{ ...circleNumber, backgroundColor: colors[index] }}
+//         >
+//           {number}
+//         </div>
+//       ))}
+//     </div>
+//     <button
+//       className="btn btn-primary mt-5 "
+//       onClick={handleClick}
+//       disabled={isRolling}
+//     >
+//       {isRolling ? "Done rolling" : "Roll the number"}
+
+//     </button>
+
+//     {quote !== "" && <h5 className="mt-5 pt-5 fw-bold">{quote}</h5>}
+//     <Footer />
+//   </div>
+// );
+// };

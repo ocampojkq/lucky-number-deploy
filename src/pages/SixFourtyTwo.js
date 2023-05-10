@@ -33,7 +33,7 @@ const SixFourtyTwo = () => {
       const intervalId = setInterval(() => {
         let randomNumber;
         do {
-          randomNumber = Math.floor(Math.random() * 42) + 1;
+          randomNumber = Math.floor(Math.random() * 43);
         } while (selectedNumbers.includes(randomNumber));
         const randomColor = `rgb(${Math.floor(
           Math.random() * 256
