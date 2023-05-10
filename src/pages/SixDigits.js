@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Footer from "./Footer";
 
 const SixDigits = () => {
   const [number, setNumber] = useState("000000");
@@ -77,8 +78,8 @@ const SixDigits = () => {
                     height: "60px",
                     fontSize: "2rem",
                     borderRadius: "50%",
-                    margin: "0 5px",
-                    padding: "5px",
+                    margin: "2px",
+
                     alignItems: "center",
                     display: "flex",
                     justifyContent: "center",
@@ -102,6 +103,7 @@ const SixDigits = () => {
 
         {quote !== "" && <h5 className="mt-5 pt-5 fw-bold">{quote}</h5>}
       </div>
+      <Footer />
     </div>
   );
 };

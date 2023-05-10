@@ -37,12 +37,27 @@ const Layout = () => {
           </li>
           <li>
             <Link to="/SixFourtyTwo" className="text-warning">
-              SUPERLOTTO 6/42
+              LOTTO 6/42
             </Link>
           </li>
           <li>
             <Link to="/SixFourtyFive" className="text-primary">
               MEGALOTTO 6/45
+            </Link>
+          </li>
+          <li>
+            <Link to="/SixFourtyNine" className="text-danger">
+              SUPERLOTTO 6/49
+            </Link>
+          </li>
+          <li>
+            <Link to="/SixFiftyFive" className="text-success">
+              GRANDLOTTO 6/55
+            </Link>
+          </li>
+          <li>
+            <Link to="/SixFiftyEight" className="text-info">
+              ULTRALOTTO 6/58
             </Link>
           </li>
         </ul>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Footer from "./Footer";
 
 const Home = () => {
   const [quote, setQuote] = useState("");
@@ -26,6 +27,7 @@ const Home = () => {
           </blockquote>
         </div>
       )}
+      <Footer />
     </div>
   );
 };

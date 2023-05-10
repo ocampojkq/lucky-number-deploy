@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import Footer from "./Footer";
 
 const TwoDigits = () => {
   const [number, setNumber] = useState("00");
@@ -55,7 +56,7 @@ const TwoDigits = () => {
   };
 
   return (
-    <div className="container text-center pt-5">
+    <div className="container text-center pt-5 ">
       <div
         className="text-center"
         style={{
@@ -77,8 +78,8 @@ const TwoDigits = () => {
                     height: "60px",
                     fontSize: "2rem",
                     borderRadius: "50%",
-                    margin: "0 5px",
-                    padding: "5px",
+                    margin: "2px",
+
                     alignItems: "center",
                     display: "flex",
                     justifyContent: "center",
@@ -102,6 +103,7 @@ const TwoDigits = () => {
 
         {quote !== "" && <h5 className="mt-5 pt-5 fw-bold">{quote}</h5>}
       </div>
+      <Footer />
     </div>
   );
 };

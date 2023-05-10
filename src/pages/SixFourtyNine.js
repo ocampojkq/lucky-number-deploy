@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "./Footer";
 
 const circleContainer = {
   display: "flex",
@@ -18,7 +19,7 @@ const circleNumber = {
   color: "white",
 };
 
-const SixFourtyFive = () => {
+const SixFourtyNine = () => {
   const [numbers, setNumbers] = useState([]);
   const [colors, setColors] = useState([]);
   const [quote, setQuote] = useState("");
@@ -32,7 +33,7 @@ const SixFourtyFive = () => {
       const intervalId = setInterval(() => {
         let randomNumber;
         do {
-          randomNumber = Math.floor(Math.random() * 45) + 1;
+          randomNumber = Math.floor(Math.random() * 49) + 1;
         } while (selectedNumbers.includes(randomNumber));
         const randomColor = `rgb(${Math.floor(
           Math.random() * 256
@@ -99,7 +100,7 @@ const SixFourtyFive = () => {
         ))}
       </div>
       <button
-        className="btn btn-primary mt-5 "
+        className="btn btn-danger mt-5 "
         onClick={handleClick}
         disabled={isRolling}
       >
@@ -108,8 +109,9 @@ const SixFourtyFive = () => {
       </button>
 
       {quote !== "" && <h5 className="mt-5 pt-5 fw-bold">{quote}</h5>}
+      <Footer />
     </div>
   );
 };
 
-export default SixFourtyFive;
+export default SixFourtyNine;

@@ -19,7 +19,7 @@ const circleNumber = {
   color: "white",
 };
 
-const SixFourtyTwo = () => {
+const SixFiftyFive = () => {
   const [numbers, setNumbers] = useState([]);
   const [colors, setColors] = useState([]);
   const [quote, setQuote] = useState("");
@@ -33,7 +33,7 @@ const SixFourtyTwo = () => {
       const intervalId = setInterval(() => {
         let randomNumber;
         do {
-          randomNumber = Math.floor(Math.random() * 42) + 1;
+          randomNumber = Math.floor(Math.random() * 55) + 1;
         } while (selectedNumbers.includes(randomNumber));
         const randomColor = `rgb(${Math.floor(
           Math.random() * 256
@@ -100,7 +100,7 @@ const SixFourtyTwo = () => {
         ))}
       </div>
       <button
-        className="btn btn-warning mt-5 "
+        className="btn btn-success mt-5 "
         onClick={handleClick}
         disabled={isRolling}
       >
@@ -114,4 +114,4 @@ const SixFourtyTwo = () => {
   );
 };
 
-export default SixFourtyTwo;
+export default SixFiftyFive;
