@@ -99,8 +99,9 @@ const SixFourtyTwo = () => {
           </div>
         ))}
       </div>
+      <h6 className="pt-4 pb-2 fw-bold text-warning">LOTTO 6/42</h6>
       <button
-        className="btn btn-warning mt-5 "
+        className="btn btn-warning "
         onClick={handleClick}
         disabled={isRolling}
       >

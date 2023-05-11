@@ -99,8 +99,9 @@ const TwoDigits = () => {
           </div>
         ))}
       </div>
+      <h6 className="pt-4 pb-2 fw-bold text-primary">2 DIGITS</h6>
       <button
-        className="btn btn-primary mt-5 "
+        className="btn btn-primary  "
         onClick={handleClick}
         disabled={isRolling}
       >

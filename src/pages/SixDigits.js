@@ -99,8 +99,9 @@ const SixDigits = () => {
           </div>
         ))}
       </div>
+      <h6 className="pt-4 pb-2 fw-bold text-info">6 DIGITS</h6>
       <button
-        className="btn btn-primary mt-5 "
+        className="btn btn-info"
         onClick={handleClick}
         disabled={isRolling}
       >

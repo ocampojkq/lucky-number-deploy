@@ -99,8 +99,9 @@ const ThreeDigits = () => {
           </div>
         ))}
       </div>
+      <h6 className="pt-4 pb-2 fw-bold text-danger">3 DIGITS</h6>
       <button
-        className="btn btn-danger mt-5 "
+        className="btn btn-danger  "
         onClick={handleClick}
         disabled={isRolling}
       >

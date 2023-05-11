@@ -99,8 +99,9 @@ const FourDigits = () => {
           </div>
         ))}
       </div>
+      <h6 className="pt-4 pb-2 fw-bold text-success">4 DIGITS</h6>
       <button
-        className="btn btn-primary mt-5 "
+        className="btn btn-success  "
         onClick={handleClick}
         disabled={isRolling}
       >
