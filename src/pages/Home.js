@@ -4,6 +4,7 @@ import Footer from './Footer';
 const Home = () => {
   const [quote, setQuote] = useState('');
   const [image, setImage] = useState('');
+  const [currentDate, setCurrentDate] = useState('');
 
   const accessKey = 'bnatQQw7w1MOBbmFcmd9o4rX50BltsdgP3xf6xXXydo';
 
@@ -32,14 +33,21 @@ const Home = () => {
 
     fetchImage();
     fetchQuote();
+
+    // set the current date when the component mounts
+    setCurrentDate(new Date().toLocaleDateString());
   }, []);
 
   return (
     <div className="container text-center">
-      <a href="https://www.facebook.com/pcso.gov">
+      <a
+        href="https://www.facebook.com/pcso.gov"
+        className="fw-bold text-decoration-none"
+      >
+        {' '}
+        {currentDate} Result
         <i className="fa-brands fa-square-facebook  fa-xl p-2 footer-icon"></i>
       </a>{' '}
-      <h4>Click facebook icon for update result</h4>
       <h1 className="text-center pt-3 text-warning fw-bolder">
         Fortune Favours the Lucky Number
       </h1>
