@@ -6,7 +6,7 @@ const Footer = () => {
           <a href="mailto:ocampopdawagrealty@gmail.com">
             <i className="fa-solid fa-envelope  fa-xl p-2 footer-icon"></i>
           </a>
-          <a href="https://www.facebook.com/sspaniardd">
+          <a href="https://www.facebook.com/pcso.gov">
             <i className="fa-brands fa-square-facebook  fa-xl p-2 footer-icon"></i>
           </a>
           <a href="https://m.me/sspaniardd">

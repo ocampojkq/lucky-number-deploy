@@ -36,6 +36,10 @@ const Home = () => {
 
   return (
     <div className="container text-center">
+      <a href="https://www.facebook.com/pcso.gov">
+        <i className="fa-brands fa-square-facebook  fa-xl p-2 footer-icon"></i>
+      </a>{' '}
+      <h4>Click facebook icon for update result</h4>
       <h1 className="text-center pt-3 text-warning fw-bolder">
         Fortune Favours the Lucky Number
       </h1>
@@ -46,7 +50,6 @@ const Home = () => {
           <p>We couldn't find a photo</p>
         )}
       </div>
-
       {quote && (
         <div className="mt-3">
           <blockquote className="blockquote">
@@ -54,7 +57,6 @@ const Home = () => {
           </blockquote>
         </div>
       )}
-
       <Footer />
     </div>
   );
