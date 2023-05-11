@@ -3,13 +3,21 @@ const Footer = () => {
     <>
       <div className="d-flex justify-content-center align-items-center pt-5 mt-5 ">
         <div className="text-center">
-          <a href="mailto:ocampopdawagrealty@gmail.com">
+          <a
+            href="mailto:ocampopdawagrealty@gmail.com"
+            target="_blank"
+            rel="noreferrer"
+          >
             <i className="fa-solid fa-envelope  fa-xl p-2 footer-icon"></i>
           </a>
-          <a href="https://www.facebook.com/pcso.gov">
+          <a
+            href="https://www.facebook.com/pcso.gov"
+            target="_blank"
+            rel="noreferrer"
+          >
             <i className="fa-brands fa-square-facebook  fa-xl p-2 footer-icon"></i>
           </a>
-          <a href="https://m.me/sspaniardd">
+          <a href="https://m.me/sspaniardd" target="_blank" rel="noreferrer">
             <i className="fa-brands fa-facebook-messenger  fa-xl p-2 footer-icon"></i>
           </a>
         </div>

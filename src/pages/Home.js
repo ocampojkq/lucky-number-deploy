@@ -42,12 +42,23 @@ const Home = () => {
     <div className="container text-center">
       <a
         href="https://www.facebook.com/pcso.gov"
+        target="_blank"
+        rel="noreferrer"
         className="fw-bold text-decoration-none"
       >
         {' '}
         {currentDate} Result
         <i className="fa-brands fa-square-facebook  fa-xl p-2 footer-icon"></i>
       </a>{' '}
+      <br />
+      <a
+        href="https://www.pcso.gov.ph/"
+        target="_blank"
+        rel="noreferrer"
+        className="fw-bold text-decoration-none"
+      >
+        PCSO <img src="/PreloaderPCSO.gif" alt="PCSO Icon" title="PCSO"></img>
+      </a>
       <h1 className="text-center pt-3 text-warning fw-bolder">
         Fortune Favours the Lucky Number
       </h1>
@@ -55,7 +66,7 @@ const Home = () => {
         {image ? (
           <img src={image} alt="Random" className="img-fluid rounded" />
         ) : (
-          <p>We couldn't find a photo</p>
+          <p></p>
         )}
       </div>
       {quote && (
