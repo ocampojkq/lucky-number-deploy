@@ -49,7 +49,7 @@ const FourDigits = () => {
           clearInterval(intervalId);
           resolve();
           setQuote(getRandomQuote());
-          setIsRolling(true); // set isRolling to false when the numbers are selected
+          setIsRolling(true); //  set isRolling to false when the numbers are selected
         }
       }, 1000);
     });
