@@ -34,7 +34,7 @@ const Home = () => {
     fetchImage();
     fetchQuote();
 
-    // set the current date when the component mounts
+    //  set the current date when the component mounts
     setCurrentDate(new Date().toLocaleDateString());
   }, []);
 
