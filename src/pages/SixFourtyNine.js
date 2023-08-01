@@ -23,7 +23,7 @@ const SixFourtyNine = () => {
   const [numbers, setNumbers] = useState([]);
   const [colors, setColors] = useState([]);
   const [quote, setQuote] = useState('');
-  const [isRolling, setIsRolling] = useState(false); //  new state variable
+  const [isRolling, setIsRolling] = useState(false); // new state variable
 
   function selectSixNumbers() {
     return new Promise((resolve) => {
