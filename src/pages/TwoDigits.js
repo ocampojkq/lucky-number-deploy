@@ -116,7 +116,7 @@ const TwoDigits = () => {
 };
 
 export default TwoDigits;
-
+// comments
 // to have default 00 show in screen
 // return (
 //   <div className="container text-center pt-5">
