@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="d-flex justify-content-center align-items-center pt-5 mt-5 ">
         <div className="text-center">
           <a
-            href="mailto:ocampopdawagrealty@gmail.com"
+            href="mailto:ocampojessekit1@gmail.com"
             target="_blank"
             rel="noreferrer"
           >
